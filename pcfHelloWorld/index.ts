@@ -3,6 +3,7 @@ import { IInputs, IOutputs } from "./generated/ManifestTypes";
 export class pcfHelloWorld implements ComponentFramework.StandardControl<IInputs, IOutputs> {
     /**
      * NEWLY ADDED
+     * 
      * A private property to hold a reference to the container div
      * This is similar to creating a variable inside a canvas apps component
      * private means that this property is only accessible WITHIN this class
@@ -32,6 +33,7 @@ export class pcfHelloWorld implements ComponentFramework.StandardControl<IInputs
     ): void {
         /**
          * NEWLY ADDED
+         * 
          * Do you see "container" parameter being passed into this function?
          * This is the div element that the framework has created for us to use.
          * This is an HTMLDivElement, which is a reference to an HTML div.
@@ -41,22 +43,48 @@ export class pcfHelloWorld implements ComponentFramework.StandardControl<IInputs
 
         //
         // NEWLY ADDED
+        //
         // Create a "Node Object" here that is a div element
         //
-        // const is used to declare variables whose bindings are immutable, 
+        // `const` is used to declare variables whose bindings are immutable, 
         // meaning the variable identifier cannot be reassigned after its initial assignment
         //
+        // Usage: Ideal for values that should remain constant throughout the program, 
+        // such as configuration settings or fixed values.
+        //
+        // Best Practices: Prefer const: 
+        // By default, use const for all variables. This makes your code more 
+        // predictable and helps prevent accidental reassignments.
+        //
         const helloDiv = document.createElement("div");
+        //
+        // innerText is a property of the HTML element that sets or 
+        // gets the text content of the element.
+        //
         helloDiv.innerText = "Hello, World!";
 
+        //
+        // NEWLY ADDED
+        //
         // Append the div to the container
+        // This is similar to using the `Collect` function in a canvas app component
+        //
         this._container.appendChild(helloDiv);
     }
 
-
     /**
+     * 
      * Called when any value in the property bag has changed. This includes field values, data-sets, global values such as container height and width, offline status, control metadata values such as label, visible, etc.
      * @param context The entire property bag available to control via Context Object; It contains values as set up by the customizer mapped to names defined in the manifest, as well as utility functions
+     * 
+     * NEWLY ADDED
+     * 
+     * This function is called when the control is to be updated.
+     * It is called when any value in the property bag has changed.
+     * We won't need this for a "Hello World" control, but it is here for you to see.
+     * Since our "Hello, World!" text doesn't change, we leave it empty.
+     * 
+     * We should always `implement` this function, even if we don't use it.
      */
     public updateView(context: ComponentFramework.Context<IInputs>): void {
         // Add code to update control view
@@ -65,6 +93,9 @@ export class pcfHelloWorld implements ComponentFramework.StandardControl<IInputs
     /**
      * It is called by the framework prior to a control receiving new data.
      * @returns an object based on nomenclature defined in manifest, expecting object[s] for property marked as "bound" or "output"
+     * 
+     * NEWLY ADDED
+     * Return an empty object if your component doesn't output data
      */
     public getOutputs(): IOutputs {
         return {};
@@ -73,6 +104,9 @@ export class pcfHelloWorld implements ComponentFramework.StandardControl<IInputs
     /**
      * Called when the control is to be removed from the DOM tree. Controls should use this call for cleanup.
      * i.e. cancelling any pending remote calls, removing listeners, etc.
+     * 
+     * NEWLY ADDED
+     * For our simple component, no cleanup is necessary.
      */
     public destroy(): void {
         // Add code to cleanup control if necessary
