@@ -2,6 +2,14 @@ import { IInputs, IOutputs } from "./generated/ManifestTypes";
 
 export class pcfHelloWorld implements ComponentFramework.StandardControl<IInputs, IOutputs> {
     /**
+     * NEWLY ADDED
+     * A private property to hold a reference to the container div
+     * This is similar to creating a variable inside a canvas apps component
+     * private means that this property is only accessible WITHIN this class
+     */
+    private _container: HTMLDivElement;
+
+    /**
      * Empty constructor.
      */
     constructor() {
@@ -22,7 +30,27 @@ export class pcfHelloWorld implements ComponentFramework.StandardControl<IInputs
         state: ComponentFramework.Dictionary,
         container: HTMLDivElement
     ): void {
-        // Add control initialization code
+        /**
+         * NEWLY ADDED
+         * Do you see "container" parameter being passed into this function?
+         * This is the div element that the framework has created for us to use.
+         * This is an HTMLDivElement, which is a reference to an HTML div.
+         * Here, we set our internal variable _container to the div container.
+         */
+        this._container = container;
+
+        //
+        // NEWLY ADDED
+        // Create a "Node Object" here that is a div element
+        //
+        // const is used to declare variables whose bindings are immutable, 
+        // meaning the variable identifier cannot be reassigned after its initial assignment
+        //
+        const helloDiv = document.createElement("div");
+        helloDiv.innerText = "Hello, World!";
+
+        // Append the div to the container
+        this._container.appendChild(helloDiv);
     }
 
 
