@@ -34,6 +34,12 @@ Pop-Location
 New-Item -ItemType Directory -Path $finalDir -Force
 Move-Item -Path "$simpleDir/*" -Destination $finalDir
 Remove-Item -Path $simpleDir -Force
+
+msbuild /t:build /restore
+
+
+pac auth create --environment "ENVIRONMENT_NAME"
+pac pcf push --publisher-prefix YOUR_PREFIX
 ```
 
 ---
