@@ -7,6 +7,7 @@ pac pcf init --namespace YOUR_NAMESPACE_HERE --name YOUR_PCF_COMPONENT_NAME --te
 
 # Move to the subdirectory where your package.json file is at
 # You might already be there!! So you **may not** use CD here
+# ⚠️ Look for the directory that has package.json
 cd FOLDER_NAME
 
 # EXAMPLE

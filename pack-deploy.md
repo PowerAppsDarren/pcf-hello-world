@@ -11,15 +11,18 @@ $finalDir = "./SolutionPackages/pcfHelloWorld-$timestamp"
 
 # Create directory with underscores (valid for solution init)
 New-Item -ItemType Directory -Path $simpleDir -Force
+# This makes us (the terminal process running this script)
+# ...go into our new directory that we just created
 Push-Location $simpleDir
 
-# Initialize the solution
+# Initialize the solution -- most important command here
+# ⚠️ Be sure to replace YOUR_PUBLISHER_NAME & YOUR_PUBLISHER_PREFIX for this next line‼️
+#pac solution init --publisher-name "YOUR_PUBLISHER_NAME" --publisher-prefix "YOUR_PUBLISHER_PREFIX"
 pac solution init --publisher-name "SuperPowerLabs" --publisher-prefix "spl"
 
 # Add reference to the PCF component (while still in the solution directory)
 #pac solution add-reference --path "../../pcf-hello-world"
 pac solution add-reference --path "../.."
-
 
 # Now return to the original directory
 Pop-Location
@@ -29,6 +32,15 @@ New-Item -ItemType Directory -Path $finalDir -Force
 Move-Item -Path "$simpleDir/*" -Destination $finalDir
 Remove-Item -Path $simpleDir -Force
 ```
+
+
+
+
+
+
+
+
+
 
 ---
 

@@ -1,6 +1,6 @@
 # PCF Hello World
 
-The most basic PCF component you'll ever see
+The most basic PCF component you'll ever see: Hello World
 
 - [Initialize Your New Project](init-new-proj.md)
 - [Edit the Index.tx File](edit-index.md)
