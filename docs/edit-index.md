@@ -121,3 +121,7 @@ export class pcfHelloWorld implements ComponentFramework.StandardControl<IInputs
     }
 }
 ```
+
+---
+
+Back to [Home](../README.md)

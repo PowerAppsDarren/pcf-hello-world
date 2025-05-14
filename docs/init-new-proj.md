@@ -16,4 +16,6 @@ cd FOLDER_NAME
 npm install
 ```
 
+---
 
+Back to [Home](../README.md)

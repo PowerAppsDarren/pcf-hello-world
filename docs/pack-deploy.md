@@ -24,6 +24,9 @@ pac solution init --publisher-name "SuperPowerLabs" --publisher-prefix "spl"
 #pac solution add-reference --path "../../pcf-hello-world"
 pac solution add-reference --path "../.."
 
+# This will build the solution
+msbuild /t:build /restore
+
 # Now return to the original directory
 Pop-Location
 
@@ -33,26 +36,6 @@ Move-Item -Path "$simpleDir/*" -Destination $finalDir
 Remove-Item -Path $simpleDir -Force
 ```
 
-
-
-
-
-
-
-
-
-
 ---
 
-pac solution init --publisher-name "PUBLISHER_NAME" --publisher-prefix "YOUR_PREFIX"
-
-
-pac solution add-reference --path "..\"
-msbuild /t:build /restore
-
-
-pac solution init --publisher-name "YourPublisherName" --publisher-prefix "yourprefix"
-
-pac solution init --publisher-name "SuperPowerLabs" --publisher-prefix "spl"
-
-
+Back to [Home](../README.md)

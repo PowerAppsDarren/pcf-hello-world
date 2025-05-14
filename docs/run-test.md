@@ -9,3 +9,7 @@ npm run build
 npm start
 ```
 You should see your component come up in a browser. Test. Play around. Come back for next steps. 
+
+---
+
+Back to [Home](../README.md)
