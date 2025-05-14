@@ -33,8 +33,5 @@ rm -rf "$simpleDir"
 # Build the solution again (optional)
 dotnet build
 
-# Authenticate with your environment (replace with your actual environment URL)
-pac auth create --url "https://yourenvironment.crm.dynamics.com"
-
-# Push the PCF component (replace 'spl' with your actual publisher prefix if different)
-pac pcf push --publisher-prefix spl
+pac auth create --environment "ENVIRONMENT_NAME"
+pac pcf push --publisher-prefix YOUR_PREFIX

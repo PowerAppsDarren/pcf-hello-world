@@ -12,8 +12,8 @@ Push-Location $simpleDir
 
 # Initialize the solution -- most important command here
 # ⚠️ Be sure to replace YOUR_PUBLISHER_NAME & YOUR_PUBLISHER_PREFIX for this next line‼️
-#pac solution init --publisher-name "YOUR_PUBLISHER_NAME" --publisher-prefix "YOUR_PUBLISHER_PREFIX"
-pac solution init --publisher-name "SuperPowerLabs" --publisher-prefix "spl"
+pac solution init --publisher-name "YOUR_PUBLISHER_NAME" --publisher-prefix "YOUR_PUBLISHER_PREFIX"
+#pac solution init --publisher-name "SuperPowerLabs" --publisher-prefix "spl"
 
 # Add reference to the PCF component (while still in the solution directory)
 #pac solution add-reference --path "../../pcf-hello-world"
@@ -31,7 +31,6 @@ Move-Item -Path "$simpleDir/*" -Destination $finalDir
 Remove-Item -Path $simpleDir -Force
 
 msbuild /t:build /restore
-
 
 pac auth create --environment "ENVIRONMENT_NAME"
 pac pcf push --publisher-prefix YOUR_PREFIX
