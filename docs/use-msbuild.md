@@ -27,7 +27,7 @@ There are two primary methods to deploy your PCF component:
 
 ```bash
 # Be sure to replace YOUR_ENVIRONMENT with your value!
-pac auth create --url https://YOUR_ENVIRONMENT.crm.dynamics.com
+#pac auth create --url https://YOUR_ENVIRONMENT.crm.dynamics.com
 ```
 pac auth create --url "orged36c4c0.crm.dynamics.com"
 pac auth create --environment "SANDBOX - GIT"
